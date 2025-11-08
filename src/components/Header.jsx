@@ -3,6 +3,7 @@ import { Menu, X, Rocket } from 'lucide-react';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const navItems = [
     { href: '#portfolio', label: 'Portfolio' },
@@ -19,9 +20,19 @@ export default function Header() {
         <div className="mt-4 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg">
           <div className="flex items-center justify-between px-4 py-3 sm:px-6">
             <a href="#home" className="flex items-center gap-2 text-white">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-violet-600 flex items-center justify-center shadow-inner">
-                <Rocket className="h-5 w-5 text-white" aria-hidden="true" />
-              </div>
+              {/* Logo immagine (usa /logo.svg o /logo.png nel folder public). Fallback all'icona se mancante */}
+              {!logoError ? (
+                <img
+                  src="/logo.svg"
+                  alt="Logo azienda"
+                  className="h-9 w-9 rounded-xl object-contain bg-white/10 p-1.5 shadow-inner"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-violet-600 flex items-center justify-center shadow-inner">
+                  <Rocket className="h-5 w-5 text-white" aria-hidden="true" />
+                </div>
+              )}
               <span className="font-semibold tracking-tight">Nova Digital</span>
             </a>
 
