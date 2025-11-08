@@ -1,8 +1,8 @@
 export default function FAQ() {
   const faqs = [
     {
-      q: 'Quanto tempo serve per lanciare un progetto? ',
-      a: 'Dipende dalla complessità: in media 4–8 settimane per un sito vetrina, 8–12 per un e‑commerce.'
+      q: 'Quanto tempo serve per lanciare un progetto?',
+      a: 'I siti sono pronti in massimo 7 giorni dalla raccolta del brief e dalla firma del contratto. Iniziamo subito con una roadmap chiara e milestone giornaliere.'
     },
     {
       q: 'Come misurate i risultati?',
