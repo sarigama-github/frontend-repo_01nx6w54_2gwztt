@@ -3,12 +3,15 @@ import Spline from '@splinetool/react-spline';
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[80vh] sm:min-h-[90vh] pt-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0b0b14] to-[#0b0b14]" />
+      {/* Gradient di sfondo: non deve bloccare l'interazione con la scena 3D */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-[#0b0b14] to-[#0b0b14]" />
 
+      {/* Scena Spline 3D */}
       <div className="absolute inset-0 opacity-70">
         <Spline scene="https://prod.spline.design/FduaNp3csZktbOi3/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
+      {/* Contenuto testuale in primo piano */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="py-10">
@@ -37,6 +40,7 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Dissolvenza al bordo inferiore, non deve bloccare l'interazione */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0b0b14] to-transparent" />
     </section>
   );
